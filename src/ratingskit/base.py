@@ -11,7 +11,7 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING, Protocol, cast, runtime_checkable
 
 if TYPE_CHECKING:
-    from collections.abc import Iterable
+    from collections.abc import Iterable, Mapping
     from datetime import date
 
     import pandas as pd
@@ -103,8 +103,14 @@ class RatingSystem(ABC):
         """
 
     @abstractmethod
-    def ratings(self) -> dict[str, Rating]:
-        """Return a snapshot of all current ratings keyed by competitor."""
+    def ratings(self) -> Mapping[str, Rating]:
+        """Return a snapshot of all current ratings keyed by competitor.
+
+        Returned as a read-only ``Mapping`` so concrete systems can override
+        with more specific return types (``dict[str, EloRating]``,
+        ``dict[str, Glicko2Rating]``) - ``Mapping`` is covariant in its value
+        type while ``dict`` is invariant.
+        """
 
     def fit(self, games: pd.DataFrame | Iterable[Game]) -> None:
         """Apply a sequence of games in order.
