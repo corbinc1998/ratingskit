@@ -46,8 +46,8 @@ elo.fit(games)
 
 ## Roadmap
 
-- [*] Elo with margin-of-victory and home-advantage hooks
-- [*] Glicko-2
+- [x] Elo with margin-of-victory and home-advantage hooks
+- [x] Glicko-2
 - [ ] Massey
 - [ ] Colley
 - [ ] TrueSkill (v0.2)
