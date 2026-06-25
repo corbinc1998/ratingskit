@@ -4,7 +4,7 @@ A unified, composable Python library for sports and competitive rating systems.
 
 ## Why
 
-Existing Elo, Glicko, and TrueSkill implementations in Python are scattered, often unmaintained, and each ship their own ad-hoc API. ratingskit provides a single consistent interface across rating systems, with first-class support for calibration, backtesting, and composition.
+I have been doing my own sports simulations, predictions and rankings and wanted to learn more about the science behind it and I've always wanted to build and maintain a python library.
 
 ## Status
 
