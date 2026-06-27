@@ -1,6 +1,6 @@
 """ratingskit: a unified, composable library for competitive rating systems."""
 
-from ratingskit.base import Game, Rating, RatingSystem
+from ratingskit.base import Game, Predictor, Rating, RatingSystem
 from ratingskit.systems.elo import Elo, EloRating
 from ratingskit.systems.glicko2 import Glicko2, Glicko2Rating
 
@@ -12,6 +12,7 @@ __all__ = [
     "Game",
     "Glicko2",
     "Glicko2Rating",
+    "Predictor",
     "Rating",
     "RatingSystem",
     "__version__",

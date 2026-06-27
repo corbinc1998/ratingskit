@@ -56,6 +56,17 @@ class Rating(Protocol):
         ...
 
 
+@runtime_checkable
+class Predictor(Protocol):
+    def predict(self, home: str, away: str) -> float:
+        """Return the probability that ``home`` beats ``away``.
+
+        Must lie in ``[0, 1]``. Implementations should be deterministic for
+        a given internal state.
+        """
+        ...
+
+
 class RatingSystem(ABC):
     """Abstract base class for all rating systems.
 
