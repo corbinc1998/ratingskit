@@ -32,3 +32,17 @@ def log_loss(predictor: Predictor, games: list[Game]) -> float:
             )
     return loss /total
 
+def accuracy(predictor: Predictor, games: list[Game], threshold: float = 0.5) -> float:
+    if not games:
+        raise ValueError("games must be non-empty")
+    correct = 0
+    total = len(games)
+    for game in games:
+        prediction = predictor.predict(game.home, game.away)
+        predicted_home_wins = prediction > threshold
+        actually_home_won = game.outcome > 0.5  
+        if predicted_home_wins == actually_home_won:
+            correct += 1
+    return correct / total
+
+
